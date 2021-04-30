@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Learn Vue</title>
+        <link href="styles.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="vue-app">
+            <h1>{{ greet('afternoon') }}</h1>
+
+            <p>Name: {{ name }}</p>
+            <p>Job: {{ job }}</p>
+            
+            <!-- display text input with text from job variable-->
+            <input type="text" v-bind:value="job">
+            
+            <!-- display link via v-bind: -->
+            <!-- <a v-bind:href="website">Visit Grace.com</a> -->
+            
+            <!-- shorthand for v-bind (colon): -->
+            <a :href="website">Visit Grace.com</a>
+
+            <!-- display link via v-html: -->
+            <p v-html="websiteTag"></p>
+        </div>
+
+        <div id="vue-app-two">
+            <h1>Events</h1>
+
+            <!-- function within html: -->
+            <!-- <button v-on:click="age++">Add a Year</button>
+            <button v-on:click="age--">Subtract a Year</button> -->
+
+            <!-- function in Vue instance methods: -->
+            <button v-on:click="add(1)">Add a Year</button>
+            <!-- shorthand is @: -->
+            <button @click="subtract(1)">Subtract a Year</button>
+
+            <button v-on:dblclick="add(10)">Add 10 Years</button>
+            <button v-on:dblclick="subtract(10)">Subtract 10 Years</button>
+
+            <p>My age is {{ age }}</p>
+
+            <div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
